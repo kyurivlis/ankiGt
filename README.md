@@ -1,0 +1,1 @@
+## Installation```stMetacello new	repository: 'github://kyurivlis/ankiGt:main/src';	baseline: 'Anki';	load```## Load Lepiter				After installing with Metacello, you will be able to execute```#BaselineOfAnki asClass loadLepiter```
