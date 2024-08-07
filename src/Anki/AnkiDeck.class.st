@@ -17,6 +17,14 @@ AnkiDeck class >> from: dicts as: NoteClass [
 	^self new from: dicts as:NoteClass
 ]
 
+{ #category : #accessing }
+AnkiDeck >> export [ 
+	<gtExample>
+	| deck |
+	deck:= Anki new deck from: EbDictionary example entries as: AnkiEbNote.
+deck export: (Path / 'home' / 'qeqpep' / 'anki.txt')
+]
+
 { #category : #export }
 AnkiDeck >> export: aPath [
 	aPath asFileReference writeStreamDo: [:s|
