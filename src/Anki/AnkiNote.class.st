@@ -22,7 +22,12 @@ AnkiNote >> export: aStream [
 
 { #category : #initiailize }
 AnkiNote >> from: aDict [ 
-	dict:= aDict collect: [:v| v ifNotNil:
-		[String streamContents: [:s |
-			(XMLWriter on: s) lineBreak: '<br>'; tag: 'p' with: v]]]
+	self from: aDict parser: [:i| [String streamContents: [:s |
+		(XMLWriter on: s) lineBreak: '<br>'; string: i]]]
+]
+
+{ #category : #initiailize }
+AnkiNote >> from: aDict parser: aParser [
+	dict:= aDict collect: [:v| (v isString) ifTrue:
+		[aParser parse: v]]
 ]
